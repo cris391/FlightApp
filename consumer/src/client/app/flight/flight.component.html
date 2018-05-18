@@ -1,0 +1,70 @@
+<main class="container">
+  <form [formGroup]="myForm" class="row">
+    <div *ngIf=" myForm.controls['from'].hasError('required')&& myForm.controls['from'].touched" class="alert alert-danger">You must specify from city.</div>
+    <div *ngIf=" myForm.controls['to'].hasError('required')&& myForm.controls['to'].touched" class="alert alert-danger">You must specify to city.</div>
+    <div *ngIf=" myForm.controls['fromDate'].hasError('required')&& myForm.controls['fromDate'].touched" class="alert alert-danger">You must specify from date.</div>
+    <div *ngIf=" myForm.controls['toDate'].hasError('required')&& myForm.controls['toDate'].touched" class="alert alert-danger">You must specify toDate date.</div>
+
+    <mat-form-field class="col-sm-12 col-md-2" color="accent">
+      <input matInput placeholder="From Ex: Copenhagen" formControlName="from">
+    </mat-form-field>
+
+    <mat-form-field class="col-sm-12 col-md-2" color="accent">
+      <input matInput placeholder="To Ex: Berlin" formControlName="to">
+    </mat-form-field>
+
+    <mat-form-field class="col-sm-12 col-md-2" color="accent">
+      <input matInput [matDatepicker]="pickerFrom" formControlName="fromDate" placeholder="Choose from date">
+      <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+      <mat-datepicker #pickerFrom></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="col-sm-12 col-md-2" color="accent">
+      <input matInput [matDatepicker]="pickerTo" formControlName="toDate" placeholder="Choose to date">
+      <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+      <mat-datepicker #pickerTo></mat-datepicker>
+    </mat-form-field>
+
+    <mat-radio-group class="col-sm-12 col-md-2" formControlName="format" color="accent">
+      <mat-radio-button value="rest">REST</mat-radio-button>
+      <mat-radio-button value="soap">SOAP</mat-radio-button>
+    </mat-radio-group>
+    <div class="col col-sm-12 col-md-2">
+      <button class="col" mat-raised-button color="accent" (click)="onSubmit(myForm.value)" [disabled]="!myForm.valid">Search</button>
+    </div>
+  </form>
+
+  <mat-progress-bar mode="indeterminate" color="accent" *ngIf="loading"></mat-progress-bar>
+
+  <section *ngIf="results" class="row result-wrapper">
+
+    <mat-card *ngFor="let result of results" class="justify-content-between">
+      <mat-card-header>
+        <mat-card-title>Departure Time: {{ result.departureTime }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>Fly Duration: {{ result.fly_duration }}</p>
+        <p>Price: {{ result.price }},-</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <a [href]="result.deep_link" mat-button class="btn float-right">Buy</a>
+      </mat-card-actions>
+    </mat-card>
+
+    <div class="col request" *ngIf="request">
+      <h3>Request</h3>
+      <pre>{{ request }}</pre>
+    </div>
+
+    <div class="col result" *ngIf="respond">
+      <h3 class="col">Response</h3>
+      <pre class="col">{{ respond  }}</pre>
+    </div>
+
+    <div class="col wsdl" *ngIf="respond && myForm.controls['format'].value === 'soap'">
+      <h1 class="col">{{ wsdlUri }}</h1>
+      <pre class="col">{{ wsdl }}</pre>
+    </div>
+
+  </section>
+</main>

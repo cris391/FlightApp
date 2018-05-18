@@ -1,0 +1,50 @@
+form {
+  margin-top: 50px;
+  position: relative;
+  padding-top: 100px;
+  button {
+    outline: none;
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }
+}
+
+mat-radio-group {
+  display: inline-block;
+}
+
+mat-spinner {
+  margin: 15% auto;
+}
+
+.alert {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.mat-radio-label /deep/ {
+  margin-bottom: 0px;
+}
+
+section {
+  &>div,
+  pre {
+    color: #616161;
+    background-color: whitesmoke;
+    margin-bottom: 20px
+  }
+}
+
+.result-wrapper {
+
+  margin-top: 50px;
+
+  mat-card {
+    width: 30%;
+    margin: 10px;
+    box-sizing: border-box;
+
+  }
+}
