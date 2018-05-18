@@ -16,7 +16,7 @@ The search can be done through **SOAP** or **RESTful** webservice.
 * Developer
 
 **Fleur Andersen**
-* Lead Developer
+* Developer
 
 ## Summary
 #### Application	Development
