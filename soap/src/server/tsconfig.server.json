@@ -1,0 +1,35 @@
+{
+  "extends": "../../tsconfig.json",
+  "compileOnSave": false,
+  "compilerOptions": {
+    "module": "commonjs",
+    "outDir": "../../dist/server",
+    "mapRoot": "../../dist/server",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "noImplicitAny": true,
+    "typeRoots": [
+      "../../node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "../../node_modules/*",
+        "../../src/types/*"
+      ]
+    },
+    "lib": [
+      "es2017",
+      "dom"
+    ]
+  },
+  "include": [
+    "../server/**/*"
+  ],
+  "exclude": [
+    "../client/**/*"
+  ]
+}
