@@ -1,5 +1,5 @@
 {
-  "name": "soap",
+  "name": "soapc",
   "version": "1.0.0",
   "description": "SI mandatory assignment",
   "scripts": {
@@ -27,11 +27,12 @@
     "body-parser": "^1.18.2",
     "core-js": "^2.5.3",
     "express": "^4.16.2",
+    "lodash": "^4.17.11",
     "reflect-metadata": "^0.1.12",
-    "request": "^2.85.0",
+    "request": "^2.88.0",
     "request-promise": "^4.2.2",
-    "soap": "^0.23.0",
-    "soap-decorators": "^1.0.2",
+    "soap": "^0.26.0",
+    "soap-decorators": "^2.0.1",
     "zone.js": "^0.8.20"
   },
   "devDependencies": {
@@ -39,7 +40,7 @@
     "@types/lodash": "^4.14.104",
     "@types/node": "^9.4.7",
     "@types/yargs": "^11.0.0",
-    "nodemon": "^1.15.1",
+    "nodemon": "^1.18.10",
     "npm-run-all": "^4.1.2",
     "ts-node": "~5.0.0",
     "tslint": "~5.9.1",
